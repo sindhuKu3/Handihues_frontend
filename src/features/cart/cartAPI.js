@@ -1,11 +1,14 @@
 export function addToCart(item) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`${window.location.origin}/carts`, {
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify(item),
-      headers: { "content-type": "application/json" },
-    });
+    const response = await fetch(
+      `https://handi-hues-backend.vercel.app/carts`,
+      {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify(item),
+        headers: { "content-type": "application/json" },
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -14,7 +17,7 @@ export function addToCart(item) {
 //FETCH ITEMS INSERTED BY USER WITH PARTICULAR ID
 export function fetchItemsByUserId(){
     return new Promise(async(resolve)=>{
- const response = await fetch(`${window.location.origin}/carts`, {
+ const response = await fetch(`https://handi-hues-backend.vercel.app/carts`, {
    credentials: "include",
  });
  const data = await response.json() ; 
@@ -27,7 +30,7 @@ export function fetchItemsByUserId(){
 export function updateCart(update) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `${window.location.origin}/carts/` + update.id,
+      `https://handi-hues-backend.vercel.app/carts/` + update.id,
       {
         method: "PATCH",
         credentials: "include",
@@ -43,12 +46,15 @@ export function updateCart(update) {
 //API CALL FOR DELETING AN ITEM FROM THE CART ITEM 
 export function deleteItemFromCart(itemId) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`${window.location.origin}/carts/` + itemId, {
-      method: "DELETE",
-      credentials: "include",
-      // body: JSON.stringify(itemId),
-      headers: { "content-type": "application/json" },
-    });
+    const response = await fetch(
+      `https://handi-hues-backend.vercel.app/carts/` + itemId,
+      {
+        method: "DELETE",
+        credentials: "include",
+        // body: JSON.stringify(itemId),
+        headers: { "content-type": "application/json" },
+      }
+    );
     const data = await response.json();
     resolve({ data: { id: itemId } });
      
