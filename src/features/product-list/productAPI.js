@@ -3,9 +3,12 @@
 //ACTION PERFORMED TO FETCH ALL PRODUCTS
 export function fetchAllProducts(){
     return new Promise(async(resolve)=>{
-        const response = await fetch(`/products`, {
-          credentials: "include",
-        });
+        const response = await fetch(
+          `https://handi-hues-backend.vercel.app/products`,
+          {
+            credentials: "include",
+          }
+        );
         const data = await response.json() ; 
         resolve({data}) ; 
     })
@@ -13,9 +16,12 @@ export function fetchAllProducts(){
 //FECTH PRODUCT BY ID 
 export function fetchProductById(id){
   return new Promise(async(resolve)=>{
-    const response = await fetch(`/products/` + id, {
-      credentials: "include",
-    });
+    const response = await fetch(
+      `https://handi-hues-backend.vercel.app/products/` + id,
+      {
+        credentials: "include",
+      }
+    );
     const data = await response.json() ; 
     resolve({data});
   })
@@ -59,12 +65,15 @@ console.log(pagination)
 //CREATE PRODUCT API BY ADMIN
 export function createProduct(product){
   return new Promise(async (resolve) => {
-    const response = await fetch(`/products`, {
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify(product),
-      headers: { "content-type": "application/json" },
-    });
+    const response = await fetch(
+      `https://handi-hues-backend.vercel.app/products`,
+      {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify(product),
+        headers: { "content-type": "application/json" },
+      }
+    );
     const data = await response.json();
     resolve({ data });
   
