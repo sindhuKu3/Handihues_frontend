@@ -3,12 +3,9 @@
 //ACTION PERFORMED TO FETCH ALL PRODUCTS
 export function fetchAllProducts(){
     return new Promise(async(resolve)=>{
-        const response = await fetch(
-          `/products`,
-          {
-            credentials: "include",
-          }
-        );
+        const response = await fetch(`${window.location.origin}/products`, {
+          credentials: "include",
+        });
         const data = await response.json() ; 
         resolve({data}) ; 
     })
@@ -16,12 +13,9 @@ export function fetchAllProducts(){
 //FECTH PRODUCT BY ID 
 export function fetchProductById(id){
   return new Promise(async(resolve)=>{
-    const response = await fetch(
-      `/products/` + id,
-      {
-        credentials: "include",
-      }
-    );
+    const response = await fetch(`${window.location.origin}/products/` + id, {
+      credentials: "include",
+    });
     const data = await response.json() ; 
     resolve({data});
   })
@@ -50,7 +44,7 @@ console.log(pagination)
       return new Promise(async (resolve) => {
         //TODO: we will not hard-code server URL here
         const response = await fetch(
-          `/products?` + queryString,
+          `${window.location.origin}/products?` + queryString,
           { credentials: "include" }
         );
         const data = await response.json();
@@ -65,15 +59,12 @@ console.log(pagination)
 //CREATE PRODUCT API BY ADMIN
 export function createProduct(product){
   return new Promise(async (resolve) => {
-    const response = await fetch(
-      `/products`,
-      {
-        method: "POST",
-        credentials: "include",
-        body: JSON.stringify(product),
-        headers: { "content-type": "application/json" },
-      }
-    );
+    const response = await fetch(`${window.location.origin}/products`, {
+      method: "POST",
+      credentials: "include",
+      body: JSON.stringify(product),
+      headers: { "content-type": "application/json" },
+    });
     const data = await response.json();
     resolve({ data });
   
@@ -85,7 +76,7 @@ export function createProduct(product){
 export function updateProduct(update) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `/products/` + update.id,
+      `${window.location.origin}/products/` + update.id,
       {
         method: "PATCH",
         credentials: "include",

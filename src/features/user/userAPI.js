@@ -2,10 +2,9 @@
 export function fetchLoggedInUserInfo() {
 
   return new Promise(async (resolve) => {
-    const response = await fetch(
-      `/users/own`,
-      { credentials: "include" }
-    );
+    const response = await fetch(`${window.location.origin}/users/own`, {
+      credentials: "include",
+    });
   
     const data = await response.json();
     resolve({ data });
@@ -16,12 +15,9 @@ export function fetchLoggedInUserInfo() {
 //FETCH LOGGED IN USER ORDER DETAILS
 export function fetchLoggedInUserOrders() {
   return new Promise(async (resolve) => {
-    const response = await fetch(
-      `/orders/own`,
-      {
-        credentials: "include",
-      }
-    );
+    const response = await fetch(`${window.location.origin}/orders/own`, {
+      credentials: "include",
+    });
       //?user=" + userId
     const data = await response.json();
     resolve({ data });
@@ -31,7 +27,7 @@ export function fetchLoggedInUserOrders() {
 export function updateUser(update) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `/users/` + update.id,
+      `${window.location.origin}/users/` + update.id,
       {
         method: "PATCH",
         credentials: "include",

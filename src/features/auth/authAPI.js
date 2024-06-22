@@ -1,14 +1,11 @@
 export function createUser(userData){
     return new Promise (async(resolve)=>{
-        const response = await fetch(
-          `/auth/signup`,
-          {
-            method: "POST",
-            credentials: "include",
-            body: JSON.stringify(userData),
-            headers: { "content-type": "application/json" },
-          }
-        );
+        const response = await fetch(`${window.location.origin}/auth/signup`, {
+          method: "POST",
+          credentials: "include",
+          body: JSON.stringify(userData),
+          headers: { "content-type": "application/json" },
+        });
         const data =await response.json() 
         resolve ({data})
         //TODO :ON SERVER IT WILL RETURN USEFUL INFORMATION {not password and any sensitive information}
@@ -19,15 +16,12 @@ export function createUser(userData){
 export function loginUser(loginInfo) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch(
-        `/auth/login`,
-        {
-          method: "POST",
-          credentials: "include",
-          body: JSON.stringify(loginInfo),
-          headers: { "content-type": "application/json" },
-        }
-      );
+      const response = await fetch(`${window.location.origin}/auth/login`, {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify(loginInfo),
+        headers: { "content-type": "application/json" },
+      });
       if (response.ok) {
         const data = await response.json();
         resolve({ data });
@@ -44,9 +38,7 @@ export function loginUser(loginInfo) {
 export function checkAuth() {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch(
-        `/auth/check`
-      );
+      const response = await fetch(`${window.location.origin}/auth/check`);
       if (response.ok) {
         const data = await response.json();
         resolve({ data });
