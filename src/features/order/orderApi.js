@@ -1,7 +1,7 @@
 export function createOrder(order) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      "https://handi-hues-backend.vercel.app/orders",
+      "/orders",
       {
         method: "POST",
         credentials: "include",
@@ -18,7 +18,7 @@ export function fetchLoggedInUserOrders() {
  
   return new Promise(async (resolve) => {
     const response = await fetch(
-      "https://handi-hues-backend.vercel.app/orders/own/",
+      "/orders/own/",
       {
         credentials: "include",
       }
@@ -54,7 +54,7 @@ export function fetchAllOrders( pagination) {
 export function updateOrder(order) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handi-hues-backend.vercel.app/orders/` + order.id,
+      `/orders/` + order.id,
       {
         method: "PATCH",
         credentials: "include",

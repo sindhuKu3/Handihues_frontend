@@ -4,7 +4,7 @@
 export function fetchAllProducts(){
     return new Promise(async(resolve)=>{
         const response = await fetch(
-          `https://handi-hues-backend.vercel.app/products`,
+          `/products`,
           {
             credentials: "include",
           }
@@ -17,7 +17,7 @@ export function fetchAllProducts(){
 export function fetchProductById(id){
   return new Promise(async(resolve)=>{
     const response = await fetch(
-      `https://handi-hues-backend.vercel.app/products/` + id,
+      `/products/` + id,
       {
         credentials: "include",
       }
@@ -66,7 +66,7 @@ console.log(pagination)
 export function createProduct(product){
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handi-hues-backend.vercel.app/products`,
+      `/products`,
       {
         method: "POST",
         credentials: "include",

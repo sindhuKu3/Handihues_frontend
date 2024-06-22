@@ -1,7 +1,7 @@
 export function createUser(userData){
     return new Promise (async(resolve)=>{
         const response = await fetch(
-          `https://handi-hues-backend.vercel.app/auth/signup`,
+          `/auth/signup`,
           {
             method: "POST",
             credentials: "include",
@@ -20,7 +20,7 @@ export function loginUser(loginInfo) {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `https://handi-hues-backend.vercel.app/auth/login`,
+        `/auth/login`,
         {
           method: "POST",
           credentials: "include",
@@ -45,7 +45,7 @@ export function checkAuth() {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `https://handi-hues-backend.vercel.app/auth/check`
+        `/auth/check`
       );
       if (response.ok) {
         const data = await response.json();
