@@ -4,7 +4,7 @@
 export function fetchAllProducts(){
     return new Promise(async(resolve)=>{
         const response = await fetch(
-          `https://handi-hues-backend.vercel.app/products`,
+          `/products`,
           {
             credentials: "include",
           }
@@ -17,7 +17,7 @@ export function fetchAllProducts(){
 export function fetchProductById(id){
   return new Promise(async(resolve)=>{
     const response = await fetch(
-      `https://handi-hues-backend.vercel.app/products/` + id,
+      `/products/` + id,
       {
         credentials: "include",
       }
@@ -50,7 +50,7 @@ console.log(pagination)
       return new Promise(async (resolve) => {
         //TODO: we will not hard-code server URL here
         const response = await fetch(
-          `https://handi-hues-backend.vercel.app/products?` + queryString,
+          `/products?` + queryString,
           { credentials: "include" }
         );
         const data = await response.json();
@@ -66,7 +66,7 @@ console.log(pagination)
 export function createProduct(product){
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handi-hues-backend.vercel.app/products`,
+      `/products`,
       {
         method: "POST",
         credentials: "include",
@@ -85,7 +85,7 @@ export function createProduct(product){
 export function updateProduct(update) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handi-hues-backend.vercel.app/products/` + update.id,
+      `/products/` + update.id,
       {
         method: "PATCH",
         credentials: "include",
