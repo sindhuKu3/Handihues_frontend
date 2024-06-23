@@ -47,14 +47,14 @@ const userInfo = useSelector(selectUserInfo)
                   <div className="flex h-16 items-center justify-between">
                     <div className="flex items-center">
                       <div className="logo">
-                      <Link to ='/'>
+                        <Link to="/">
                           <img
-                         className="h-10 w-10 ml-5 -mt-3"
+                            className="h-10 w-10 ml-5 -mt-3"
                             src="/images/logo.png"
                             alt="Your Company"
                           />
                         </Link>
-                          {/* <Link to="/">
+                        {/* <Link to="/">
                       </div>
                       <div className="flex-shrink-0">
                         <Link to="/">
@@ -114,7 +114,7 @@ const userInfo = useSelector(selectUserInfo)
                               <span className="sr-only">Open user menu</span>
                               <img
                                 className="h-10 w-10 rounded-full"
-                                src='./images/user.png'
+                                src="./images/user.png"
                                 alt=""
                               />
                             </MenuButton>
@@ -158,7 +158,7 @@ const userInfo = useSelector(selectUserInfo)
                                   <li className="hover:bg-purple-600 w-full">
                                     <Link
                                       className="pl-4 leading-8 "
-                                      to={"/userOrders"}
+                                      to={"/my-orders"}
                                     >
                                       My Orders
                                     </Link>
