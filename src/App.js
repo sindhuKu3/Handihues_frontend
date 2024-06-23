@@ -48,8 +48,7 @@ function App() {
     <div className="App">
       <main>
         <BrowserRouter>
-      
-          <NavBar/>
+          <NavBar />
           <Routes>
             <Route
               path="/"
@@ -86,7 +85,7 @@ function App() {
               }
             />
             <Route path="/orderSuccess/:id" element={<OrderSuccess />} />
-            <Route path="/my-orders" element={<UserOrders />} />
+            <Route path="/userOrders" element={<UserOrders />} />
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/logOut" element={<Logout />} />
             <Route path="/about" element={<AboutPage />} />

@@ -21,11 +21,11 @@ const navigation = [
   { name: "Add Product", link: "/admin/product-form/", admin: true },
   { name: "Orders", link: "/admin/orders", admin: true },
 ];
-const userNavigation = [
-  { name: "My Profile", link: "/profile" },
-  { name: "My Orders", link: "/my-orders" },
-  { name: "Sign out", link: "/logout" },
-];
+// const userNavigation = [
+//   { name: "My Profile", link: "/profile" },
+//   { name: "My Orders", link: "/my-orders" },
+//   { name: "Sign out", link: "/logout" },
+// ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -158,7 +158,7 @@ const userInfo = useSelector(selectUserInfo)
                                   <li className="hover:bg-purple-600 w-full">
                                     <Link
                                       className="pl-4 leading-8 "
-                                      to={"/my-orders"}
+                                      to={"/userOrders"}
                                     >
                                       My Orders
                                     </Link>
@@ -276,7 +276,7 @@ const userInfo = useSelector(selectUserInfo)
                       <div className="Orders">
                         <Link
                           className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                          to={"/my-orders"}
+                          to={"/userOrders"}
                         >
                           My Orders
                         </Link>
