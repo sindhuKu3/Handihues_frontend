@@ -31,7 +31,7 @@ export const loginUserAsync = createAsyncThunk(
       const response = await loginUser(loginInfo);
       return response.data;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       return rejectWithValue(error);
     }
   }
@@ -42,7 +42,7 @@ export const checkAuthAsync = createAsyncThunk('user/checkAuth', async () => {
     const response = await checkAuth();
     return response.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 });
 
@@ -107,9 +107,5 @@ export const {} = authSlice.actions;
 export const selectLoggedInUser = (state) => state.auth.loggedInUserToken;
 export const selectError = (state) => state.auth.error;
 export const selectUserChecked = (state) => state.auth.userChecked;
-
-
-
-// 
 
 export default authSlice.reducer;

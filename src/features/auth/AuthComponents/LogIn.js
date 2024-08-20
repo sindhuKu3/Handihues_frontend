@@ -19,7 +19,6 @@ const LogIn = () => {
        
       <div className="flex min-h-full flex-1 mt-10  mx-60 border-solid border-l-2 border-r-2 border-purple-900  rounded-lg flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h1>hello</h1>
           <img
             className="h-10 w-10 ml-40 -mt-3"
             src="/images/logo.png"

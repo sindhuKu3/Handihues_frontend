@@ -4,14 +4,10 @@ import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { useState } from "react";
-import {Grid} from 'react-loader-spinner' ;
 import { deleteItemFromCartAsync, selectedItems, updateCartAsync } from "../features/cart/cartSlice";
-import Cart from "../features/cart/Cart";
 // import { selectLoggedInUser, updateUserAsync } from "../features/auth/authSlice";
 import { createOrderAsync, selectCurrentOrder } from "../features/order/orderSlice";
 import { selectUserInfo, updateUserAsync, } from "../features/user/userSlice";
-
-import { selectLoggedInUser } from "../features/auth/authSlice";
 
 function Checkout() {
 
@@ -23,7 +19,6 @@ function Checkout() {
   } = useForm();
  
 
-     const [open, setOpen] = useState(true);
      const dispatch = useDispatch();
      const items = useSelector(selectedItems);
      const user = useSelector(selectUserInfo);
@@ -54,15 +49,15 @@ function Checkout() {
 
      //FUNCTION CALLED FOR HANDLING THE ADDRESSES
      const handleAddress=(e)=>{
-      console.log(e.target.value) ; 
+      // console.log(e.target.value) ; 
       setSelectedAddresses(user.addresses[e.target.value])
      }
 
      //FUNCTION CALLED FOR SELECTING PAYMENT METHOD
-     const handlePaymentMethod=(e)=>{
-      console.log(e.target.value)
-      setSelectePaymentMethod(e.target.value)
-     }
+    //  const handlePaymentMethod=(e)=>{
+    //   // console.log(e.target.value)
+    //   setSelectePaymentMethod(e.target.value)
+    //  }
 
      //FUNCTION CALLED ON CLICKING ORDER NOW BUTTON
      const handleOrder=(e)=>{
@@ -111,7 +106,7 @@ function Checkout() {
               className="bg-white px-5 py-12 mt-12"
               noValidate
               onSubmit={handleSubmit((data) => {
-                console.log(data);
+                // console.log(data);
                 dispatch(
                   updateUserAsync({
                     ...user,

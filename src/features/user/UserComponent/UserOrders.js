@@ -28,7 +28,7 @@ export default function UserOrders() {
             <div>
               <div className="mx-20 mt-12 bg-gray-100 max-w-7xl px-4 sm:px-6 lg:px-8 ">
                 <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-                  <h1 className="text-4xl my-5 font-bold tracking-tight text-gray-900">
+                  <h1 className="text-3xl my-5 font-bold tracking-tight text-gray-900">
                     Order # {order.id}
                   </h1>
                   <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">

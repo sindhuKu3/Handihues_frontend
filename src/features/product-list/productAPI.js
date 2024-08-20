@@ -39,7 +39,7 @@ export function fetchProductsByFilter(filter,sort,pagination,admin){
     for(let key in sort){
       queryString += `${key}=${sort[key]}&`;
     }
-console.log(pagination)
+// console.log(pagination)
     for(let key in pagination){
       queryString += `${key}=${pagination[key]}&`
     }
@@ -56,7 +56,7 @@ console.log(pagination)
         const data = await response.json();
         //PAGINATION PAR ABHI KAAM KRNA HAI Q KI SERVER SE Access-Control-Expose-Headers ISKE THROUGH TOTAL DOC ACCESS KR SKTE HAI X-TOTAL-COUNT HAR JAGAH KAAM NAHI KRTA HAI ABHI KE LIYE MANUALLY 37 ELEMENT HMNE MAAN LIYE HAI
         const totalItems = response.headers.get("X-Total-Count") || 37;
-        console.log({ totalItems });
+        // console.log({ totalItems });
         resolve({ data: { products: data, totalItems: +totalItems } });
       });
 }

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchProductByIdAsync,
   selectProductById,
-  selectProductListStatus,
 } from "../productSlice";
 import { useParams } from "react-router-dom";
 
@@ -19,7 +18,6 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
 
   const params = useParams();
-  const status = useSelector(selectProductListStatus);
   const items = useSelector(selectedItems);
   useEffect(() => {
     // console.log("user of Product details" +user);
@@ -78,33 +76,33 @@ const ProductDetails = () => {
               <p className="text-xl text-gray-600">{product.highlights}</p>
             </div>
 
-            <div className="mt-8 lg:row-span-3 lg:mt-0">
-              <h2 className="sr-only">Product information</h2>
-              <div className="Price align-items flex flex-row ">
-                <h2 className="sr-only">Product Price</h2>
-                <p className="mt-8 text-3xl font-medium text-gray-900">
-                  Rs &nbsp;
-                  {Math.round(
-                    product.price * (1 - product.discountPercentage / 100)
-                  )}
-                </p>
-                <p className="mt-8 text-3xl pl-3 font-medium text-gray-500 line-through">
-                  {product.price}Rs
-                </p>
-                <p className="mt-8 text-3xl pl-3 font-medium text-green-500 ">
-                  {product.discountPercentage}% OFF
-                </p>
-              </div>
+            {/* Reviews */}
+            <div className="mt-4">
+              <h3 className="sr-only">Reviews</h3>
+              <div className="flex items-center">
+                <div className=" mt-2 Rating text-3xl flex inline-flex justify-between  ">
+                  <p>{product.rating}</p>
+                  <Rating value={product.rating} />
+                  <p className="mt-0  pl-3 text-xl text-gray-700">
+                    from {product.numReviews} Reviews
+                  </p>
+                </div>
 
-              {/* Reviews */}
-              <div className="mt-6">
-                <h3 className="sr-only">Reviews</h3>
-                <div className="flex items-center">
-                  <div className=" mt-2 Rating text-3xl flex inline-flex justify-between  ">
-                    <p>{product.rating}</p>
-                    <Rating value={product.rating} />
-                    <p className="mt-0  pl-3 text-xl text-gray-700">
-                      from {product.numReviews} Reviews
+                <div className="mt-6 lg:row-span-3 lg:mt-0">
+                  <h2 className="sr-only">Product information</h2>
+                  <div className="Price align-items flex flex-row ">
+                    <h2 className="sr-only">Product Price</h2>
+                    <p className="mt-8 text-3xl font-medium text-gray-900">
+                      Rs &nbsp;
+                      {Math.round(
+                        product.price * (1 - product.discountPercentage / 100)
+                      )}
+                    </p>
+                    <p className="mt-8 text-3xl pl-3 font-medium text-gray-500 line-through">
+                      {product.price}Rs
+                    </p>
+                    <p className="mt-8 text-3xl pl-3 font-medium text-green-500 ">
+                      {product.discountPercentage}% OFF
                     </p>
                   </div>
 

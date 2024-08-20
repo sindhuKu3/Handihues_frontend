@@ -9,12 +9,11 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 const dispatch = useDispatch() ; 
 const user = useSelector(selectLoggedInUser)
-  console.log(errors) ;
+  // console.log(errors) ;
     return (
       <>
         {user && <Navigate to={"/"} replace={true}></Navigate>}
@@ -44,7 +43,7 @@ const user = useSelector(selectLoggedInUser)
                     fullName: data.fullName,
                   })
                 );
-                console.log(data);
+                // console.log(data);
               })}
             >
               <div>

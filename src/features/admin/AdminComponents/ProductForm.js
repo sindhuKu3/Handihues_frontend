@@ -2,9 +2,8 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { clearSelectedProduct, createProductAsync, fetchProductByIdAsync, selectProductById, updateProductAsync } from "../../product-list/productSlice";
-import { useEffect, useState } from "react";
-import Success from "../../../Assets/success";
-import Alert from "../../../Assets/alert";
+import { useEffect} from "react";
+
 
 const ProductForm = () => {
   const params = useParams();
@@ -12,7 +11,6 @@ const ProductForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
     setValue,
     reset,
     formState: { errors },
@@ -54,13 +52,13 @@ const ProductForm = () => {
       <form
         noValidate
         onSubmit={handleSubmit((data) => {
-          console.log(data);
+          // console.log(data);
           const product = { ...data };
           // product.rating = 0;
           product.price = +product.price;
           product.rating = +product.rating;
           product.countInStock = +product.countInStock;
-          console.log(product);
+          // console.log(product);
           if (params.id) {
             product.id = params.id;
             dispatch(updateProductAsync(product));

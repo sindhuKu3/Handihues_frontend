@@ -92,7 +92,7 @@ const UserProfile = () => {
                     className="bg-white px-5 py-12 mt-12"
                     noValidate
                     onSubmit={handleSubmit((data) => {
-                      console.log(data);
+                      // console.log(data);
                       handleAdd(data);
                       reset();
                     })}
@@ -309,7 +309,7 @@ const UserProfile = () => {
                         className="bg-white px-5 py-12 mt-12"
                         noValidate
                         onSubmit={handleSubmit((data) => {
-                          console.log(data);
+                          // console.log(data);
                           handleEdit(data, index);
                           reset();
                         })}

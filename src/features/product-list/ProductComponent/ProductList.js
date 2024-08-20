@@ -15,18 +15,14 @@ import {
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
-  ChevronRightIcon,
-  ChevronLeftIcon,
   FunnelIcon,
   MinusIcon,
   PlusIcon,
-  StarIcon,
 } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectAllProducts,
-  fetchAllProductAsync,
   fetchAllProductByFilterAsync,
   selectTotalItems,
   selectProductListStatus,
@@ -86,7 +82,7 @@ const ProductList = () => {
 
   //  FUNCTION TO FILTER PRODUCT LIST
   const handleFilter = (e, section, option) => {
-    console.log(e.target.checked);
+    // console.log(e.target.checked);
     const newFilter = { ...filter };
     if (e.target.checked) {
       newFilter[section.id] = option.value;
@@ -94,7 +90,7 @@ const ProductList = () => {
       delete newFilter[section.id];
     }
     setFilter(newFilter);
-    console.log(section.id, option.value);
+    // console.log(section.id, option.value);
   };
 
   // const handleFilter = (e, section, option) => {
@@ -125,13 +121,13 @@ const ProductList = () => {
   const handleSort = (e, option) => {
     //   const sort = { _sort: option.sort };
     const sort = { _sort: option.sort, _order: option.order };
-    console.log({ sort });
+    // console.log({ sort });
     setSort(sort);
   };
 
   //FUNCTION FOR ADDING PAGINATION FUNCTIONALITY
   const handlePage = (page) => {
-    console.log({ page });
+    // console.log({ page });
     setPage(page);
   };
   useEffect(() => {
