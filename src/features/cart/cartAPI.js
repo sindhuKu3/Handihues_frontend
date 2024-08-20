@@ -61,40 +61,10 @@ export function deleteItemFromCart(itemId) {
   });
 }
 
-//RESET CART OF PARTICULAR USER 
 
-// export async function resetCart(){
-//   //GET ALL THE ITEM OF USER CAR DELETE THEM ONE BY ONE 
-//   return new Promise (async(resolve)=>{
-//     const response = await fetchItemsByUserId() ; 
-//     const items = response.data ; 
-//     for(let item of items){
-//       await deleteItemFromCart(item.id) ; 
-//     }
-//     resolve({status:'success'})
-//   })
-
-// }
-
-// export async function resetCart() {
-//   //GET ALL THE ITEM OF USER CAR DELETE THEM ONE BY ONE
-//   return new Promise(async (resolve) => {
-//     const response = await fetchItemsByUserId();
-//     const items = response.data;
-//       console.log(items);
-//     for (let item of items) {
-//       await deleteItemFromCart(item.id);
-//     }
-//     resolve({ status: "success" });
-//   });
-// }
 
 export async function resetCart() {
   return new Promise(async (resolve) => {
-    // if (!userId) {
-    //   resolve({ status: "error", message: "userId is undefined" });
-    //   return;
-    // }
     const response = await fetchItemsByUserId();
     //userId
     const items = response.data;
