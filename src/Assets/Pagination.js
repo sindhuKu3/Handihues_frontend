@@ -46,7 +46,7 @@ export const Pagination = ({ handlePage, page, setPage, totalItems }) => {
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
             </div>
-            {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
+        
             {Array.from({ length: totalPage }).map((el, index) => (
               <div
                 onClick={(e) => handlePage(index + 1)}

@@ -10,9 +10,7 @@ import { useParams } from "react-router-dom";
 import { addToCartAsync } from "../../cart/cartSlice";
 import Rating from "../../../Assets/rating";
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(" ");
-// }
+
 const AdminProductDetails = () => {
   const product = useSelector(selectProductById);
   const dispatch = useDispatch();
