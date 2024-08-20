@@ -80,18 +80,17 @@ const ProductDetails = () => {
             <div className="mt-4">
               <h3 className="sr-only">Reviews</h3>
               <div className="flex items-center">
-                <div className=" mt-2 Rating text-3xl flex inline-flex justify-between  ">
+                <div className=" mt-2 w-full Rating text-3xl flex inline-flex justify-between  ">
                   <p>{product.rating}</p>
                   <Rating value={product.rating} />
                   <p className="mt-0  pl-3 text-xl text-gray-700">
                     from {product.numReviews} Reviews
                   </p>
                 </div>
-
-                <div className="mt-6 lg:row-span-3 lg:mt-0">
-                  <h2 className="sr-only">Product information</h2>
-                  <div className="Price align-items flex flex-row ">
-                    <h2 className="sr-only">Product Price</h2>
+                   {/* Price */}
+                <div className="mt-6 lg:row-span-3  w-full lg:mt-0">
+                  <div className="Price align-items w-full flex flex-row ">
+                   
                     <p className="mt-8 text-3xl font-medium text-gray-900">
                       Rs &nbsp;
                       {Math.round(
