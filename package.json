@@ -1,5 +1,5 @@
 {
- 
+ "proxy":"https://handi-hues-backend.vercel.app/",
 
   "name": "frontend",
   "version": "0.1.0",
