@@ -47,7 +47,7 @@ const filters = [
   },
 ];
 const sortOptions = [
-  { name: "Best Rating", sort: "rating", order: "asc", current: false },
+  { name: "Best Rating", sort: "rating", order: "desc", current: false },
   {
     name: "Price: Low to High",
     sort: "price",
