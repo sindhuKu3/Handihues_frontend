@@ -1,18 +1,18 @@
 
 
 //ACTION PERFORMED TO FETCH ALL PRODUCTS
-export function fetchAllProducts(){
-    return new Promise(async(resolve)=>{
-        const response = await fetch(
-          `/products`,
-          {
-            credentials: "include",
-          }
-        );
-        const data = await response.json() ; 
-        resolve({data}) ; 
-    })
-}
+// export function fetchAllProducts(){
+//     return new Promise(async(resolve)=>{
+//         const response = await fetch(
+//           `/products`,
+//           {
+//             credentials: "include",
+//           }
+//         );
+//         const data = await response.json() ; 
+//         resolve({data}) ; 
+//     })
+// }
 //FECTH PRODUCT BY ID 
 export function fetchProductById(id){
   return new Promise(async(resolve)=>{
@@ -32,7 +32,11 @@ export function fetchProductsByFilter(filter,sort,pagination,admin){
     //filter - {"category":smartPhone}
     let queryString ='';
     for(let key in filter){
-           queryString += `${key}=${filter[key]}&`
+          //  queryString += `${key}=${filter[key]}&`
+           const categoryValues = filter[key];
+           if (categoryValues.length) {
+             queryString += `${key}=${categoryValues}&`;
+           }
       }
   
 
