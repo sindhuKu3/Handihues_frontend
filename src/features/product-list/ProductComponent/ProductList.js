@@ -27,7 +27,7 @@ import {
   selectTotalItems,
   selectProductListStatus,
 } from "../productSlice";
-import { ITEMS_PER_PAGE } from "../../../Assets/constants";
+// import { ITEMS_PER_PAGE } from "../../../Assets/constants";
 import { Pagination } from "../../../Assets/Pagination";
 import Rating from "../../../Assets/rating";
 import { ThreeDots } from "react-loader-spinner";
@@ -131,7 +131,7 @@ const ProductList = () => {
     setPage(page);
   };
   useEffect(() => {
-    const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
+    const pagination = { _page: page, _limit:10};
     //    dispatch(fetchAllProductAsync());//
     dispatch(fetchAllProductByFilterAsync({ filter, sort, pagination }));
   }, [dispatch, filter, sort, page]);

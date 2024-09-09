@@ -29,7 +29,7 @@ import {
   selectTotalItems,
   selectProductListStatus,
 } from "../../product-list/productSlice";
-import { ITEMS_PER_PAGE } from "../../../Assets/constants";
+// import { ITEMS_PER_PAGE } from "../../../Assets/constants";
 import Rating from "../../../Assets/rating";
 import { ThreeDots } from "react-loader-spinner";
 // import { fetchProductsByFilter } from "../productAPI";
@@ -101,7 +101,7 @@ const AdminProductList = () => {
     setPage(page);
   };
   useEffect(() => {
-    const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
+    const pagination = { _page: page, _limit:10  };
 
     dispatch(
       fetchAllProductByFilterAsync({ filter, sort, pagination, admin: true })
@@ -394,7 +394,7 @@ const DesktopFilter = ({ handleFilter, filters }) => {
 
 //PAGINATION
 const Pagination = ({ handlePage, page, setPage, totalItems }) => {
-  const totalPage = Math.ceil(totalItems / ITEMS_PER_PAGE);
+  const totalPage = Math.ceil(totalItems / 10);
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -415,12 +415,12 @@ const Pagination = ({ handlePage, page, setPage, totalItems }) => {
         <div>
           <p class="text-sm text-gray-700">
             Showing{" "}
-            <span class="font-medium">{(page - 1) * ITEMS_PER_PAGE + 1}</span>
+            <span class="font-medium">{(page - 1) * 10 + 1}</span>
             to{" "}
             <span class="font-medium">
-              {page * ITEMS_PER_PAGE > totalItems
+              {page *10 > totalItems
                 ? totalItems
-                : page * ITEMS_PER_PAGE}
+                : page *10}
             </span>
             of
             <span class="font-medium">{totalItems}</span>

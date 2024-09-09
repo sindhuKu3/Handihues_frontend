@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ITEMS_PER_PAGE } from "../../../Assets/constants";
+// import { ITEMS_PER_PAGE } from "../../../Assets/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { PencilIcon } from "@heroicons/react/24/outline";
 import {
@@ -47,7 +47,7 @@ function AdminOrders() {
   };
 
   useEffect(() => {
-    const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
+    const pagination = { _page: page, _limit: 10 };
     dispatch(fetchAllOrdersAsync(pagination));
   }, [dispatch, page]);
 
