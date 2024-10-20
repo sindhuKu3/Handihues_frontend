@@ -1,7 +1,7 @@
 export function createOrder(order) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `/orders`,
+      `https://handihues-backend.onrender.com/orders`,
       {
         method: "POST",
         credentials: "include",
@@ -18,12 +18,11 @@ export function fetchLoggedInUserOrders() {
  
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `/orders/own/`,
+      `https://handihues-backend.onrender.com/orders/own/`,
       {
         credentials: "include",
       }
     );
-   
     const data = await response.json();
     resolve({ data });
   });
@@ -44,7 +43,6 @@ export function fetchAllOrders( pagination) {
       { credentials: "include" }
     );
     const data = await response.json();
-    //PAGINATION PAR ABHI KAAM KRNA HAI Q KI SERVER SE Access-Control-Expose-Headers ISKE THROUGH TOTAL DOC ACCESS KR SKTE HAI X-TOTAL-COUNT HAR JAGAH KAAM NAHI KRTA HAI ABHI KE LIYE MANUALLY 37 ELEMENT HMNE MAAN LIYE HAI
     const totalOrders = response.headers.get("X-Total-Count");
     resolve({ data: { orders: data, totalOrders: +totalOrders} });
   });
@@ -54,7 +52,7 @@ export function fetchAllOrders( pagination) {
 export function updateOrder(order) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `/orders/` + order.id,
+      `https://handihues-backend.onrender.com/orders/` + order.id,
       {
         method: "PATCH",
         credentials: "include",

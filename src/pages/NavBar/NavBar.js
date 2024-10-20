@@ -21,11 +21,6 @@ const navigation = [
   { name: "Add Product", link: "/admin/product-form/", admin: true },
   { name: "Orders", link: "/admin/orders", admin: true },
 ];
-// const userNavigation = [
-//   { name: "My Profile", link: "/profile" },
-//   { name: "My Orders", link: "/my-orders" },
-//   { name: "Sign out", link: "/logout" },
-// ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -54,16 +49,7 @@ const userInfo = useSelector(selectUserInfo)
                             alt="Your Company"
                           />
                         </Link>
-                        {/* <Link to="/">
-                      </div>
-                      <div className="flex-shrink-0">
-                        <Link to="/">
-                          <img
-                            className="h-8 w-8"
-                            src="/ecommerce.png"
-                            alt="Your Company"
-                          />
-                        </Link> */}
+                    
                       </div>
                       <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-4">
@@ -129,22 +115,7 @@ const userInfo = useSelector(selectUserInfo)
                             leaveTo="transform opacity-0 scale-95"
                           >
                             <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 cursor-pointer ring-black ring-opacity-5 focus:outline-none">
-                              {/* {userNavigation.map((item) => (
-                                <MenuItems key={item.name}>
-                                  {({ active }) => (
-                                    <Link
-                                      to={item.link}
-                                      className={classNames(
-                                        active ? "bg-gray-300" : "bg-gray-100",
-                                        "block px-4 py-2 text-sm text-gray-700"
-                                      )}
-                                    >
-                                      {item.name}
-                                    </Link>
-
-                                  )}
-                                </MenuItems>
-                              ))} */}
+                              
                               <ul>
                                 <div>
                                   <li className="hover:bg-purple-600 w-full">
@@ -253,17 +224,7 @@ const userInfo = useSelector(selectUserInfo)
                         </span>
                       )}
                     </div>
-                    {/* <div className="mt-3 space-y-1 px-2">
-                      {userNavigation.map((item) => (
-                        <Link
-                          // key={item.name}
-                           to={item.link}
-                          className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div> */}
+                   
                     <div className="UserNavigation ">
                       <div className="Profile">
                         <Link
@@ -297,17 +258,8 @@ const userInfo = useSelector(selectUserInfo)
           </Disclosure>
 
           <header className="bg-white shadow">
-            {/* <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-                E-Commerce
-              </h1>
-            </div> */}
+            
           </header>
-          {/* <main>
-            <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-              {children}
-            </div>
-          </main> */}
         </div>
       )}
     </>

@@ -1,18 +1,14 @@
-
-
 import ProductList from "../features/product-list/ProductComponent/ProductList";
 const HomePage = () => {
     return (
       <div className="HomePage">
-    
           <img
-          className="-pt-5"
-            src="./images/front.png"
+          className="-pt-5 w-full"
+            src="./images/HomeScreen.png"
             alt="error"
-            style={{ height: "550px" }}
+            style={{ height: "521px" }}
           ></img>
           <ProductList />
-     
       </div>
     );
 }

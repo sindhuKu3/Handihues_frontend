@@ -1,17 +1,20 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-// import { ITEMS_PER_PAGE } from "./constants";
+
 
 export const Pagination = ({ handlePage, page, setPage, totalItems }) => {
   const totalPage = Math.ceil(totalItems /10);
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
+        {/* PREVIOUS PAGE LOGIC */}
         <div
           onClick={(e) => handlePage(page > 1 ? page - 1 : page)}
           className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
         >
           Previous
         </div>
+
+        {/* NEXT PAGE LOGIC */}
         <div
           onClick={(e) => handlePage(page < totalPage ? page + 1 : page)}
           className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
@@ -23,16 +26,15 @@ export const Pagination = ({ handlePage, page, setPage, totalItems }) => {
         <div>
           <p class="text-sm text-gray-700">
             Showing{" "}
-            {/* ITEMS_PER_PAGE = 10  */}
             <span class="font-medium">{(page - 1) * 10 + 1}</span>
             to{" "}
             <span class="font-medium">
               {page * 10 > totalItems
                 ? totalItems
-                : page * 10}
+                : page * 10} {" "}
             </span>
             of
-            <span class="font-medium">{totalItems}</span>
+            <span class="font-medium">{" "}{  totalItems}</span>
           </p>
         </div>
         <div>

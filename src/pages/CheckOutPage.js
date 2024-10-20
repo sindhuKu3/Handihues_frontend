@@ -25,7 +25,7 @@ function Checkout() {
      const currentOrder = useSelector(selectCurrentOrder);
      //STATE FOR PASSING THE ADDRESS AND PAYMENT METHOD OPTION TO ORDER OBJECT
      const [selectedAddresses ,setSelectedAddresses] = useState(null) ; 
-     const [paymentMethod , setSelectePaymentMethod] = useState('cash')
+     const [paymentMethod , setPaymentMethod] = useState(null);
      //TO CALCULATE TOTAL AMOUNT
      const totalAmount = items.reduce(
        (amount, item) => item.product.price * item.quantity + amount,
@@ -53,11 +53,9 @@ function Checkout() {
       setSelectedAddresses(user.addresses[e.target.value])
      }
 
-     //FUNCTION CALLED FOR SELECTING PAYMENT METHOD
-    //  const handlePaymentMethod=(e)=>{
-    //   // console.log(e.target.value)
-    //   setSelectePaymentMethod(e.target.value)
-    //  }
+     const handlePaymentMethod = (e) => {
+       setPaymentMethod(e.target.value); // Update the state when user selects a payment method
+     };
 
      //FUNCTION CALLED ON CLICKING ORDER NOW BUTTON
      const handleOrder=(e)=>{
@@ -79,16 +77,6 @@ function Checkout() {
      
   return (
     <>
-      {/* <Grid
-        height="80"
-        width="80"
-        color="rgb(79, 70, 229) "
-        ariaLabel="grid-loading"
-        radius="12.5"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />  */}
       {/*NAVIGATE TO HOMEPAGE AS SOON AS AS CART BECOME EMPTY  */}
       {items.length === 0 && <Navigate to="/" replace={true}></Navigate>}
       {currentOrder && (
@@ -352,6 +340,7 @@ function Checkout() {
                 ))}
               </ul>
 
+         
               <div className="mt-10 space-y-10">
                 <fieldset>
                   <legend className="text-sm font-semibold leading-6 text-gray-900">
@@ -364,6 +353,7 @@ function Checkout() {
                     <div className="flex items-center gap-x-3">
                       <input
                         checked={paymentMethod === "cash"}
+                        onChange={handlePaymentMethod} // Handle change event
                         id="cash"
                         name="payments"
                         value="cash"
@@ -381,6 +371,7 @@ function Checkout() {
                       <input
                         id="card"
                         checked={paymentMethod === "card"}
+                        onChange={handlePaymentMethod} // Handle change event
                         name="payments"
                         value="card"
                         type="radio"
@@ -396,6 +387,8 @@ function Checkout() {
                   </div>
                 </fieldset>
               </div>
+
+
             </div>
           </div>
           <div className="lg:col-span-2 ">
@@ -428,7 +421,9 @@ function Checkout() {
                                     {item.product.name}
                                   </a>
                                 </h3>
-                                <p className="ml-4 text bold">{item.product.price} Rs</p>
+                                <p className="ml-4 text bold">
+                                  {item.product.price} Rs
+                                </p>
                               </div>
                               <p className="mt-1 text-sm text-gray-500">
                                 {item.product.color}
@@ -500,7 +495,7 @@ function Checkout() {
                         type="button"
                         className="font-medium  text-white-600 hover:text-white-200"
                       >
-                                Continue Shopping
+                        Continue Shopping
                         <span aria-hidden="true"> &rarr;</span>
                       </button>
                     </Link>

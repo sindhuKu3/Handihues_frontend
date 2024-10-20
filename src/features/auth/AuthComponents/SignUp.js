@@ -13,7 +13,7 @@ const SignUp = () => {
   } = useForm();
 const dispatch = useDispatch() ; 
 const user = useSelector(selectLoggedInUser)
-  // console.log(errors) ;
+ 
     return (
       <>
         {user && <Navigate to={"/"} replace={true}></Navigate>}
@@ -43,7 +43,7 @@ const user = useSelector(selectLoggedInUser)
                     fullName: data.fullName,
                   })
                 );
-                // console.log(data);
+              
               })}
             >
               <div>
@@ -125,35 +125,37 @@ const user = useSelector(selectLoggedInUser)
                   <p className="text-red-500">{errors.password.message}</p>
                 )}
               </div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Confirm Password
-                </label>
-                <div className="text-sm"></div>
-              </div>
-              {/* //confirem password section */}
-              <div className="mt-2">
-                <input
-                  id="confirmPassword"
-                  {...register("confirmPassword", {
-                    required: "Confirm Password is required",
-                    validate: (value, formValues) =>
-                      value === formValues.password ||
-                      "password is not matching",
-                  })}
-                  type="password"
-                  className="block pl-4 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
-                />
-                {errors.confirmPassword && (
-                  <p className="text-red-500">
-                    {errors.confirmPassword.message}
-                  </p>
-                )}
-              </div>
 
+              <div>
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="password"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Confirm Password
+                  </label>
+                  <div className="text-sm"></div>
+                </div>
+                {/* //confirem password section */}
+                <div className="mt-2">
+                  <input
+                    id="confirmPassword"
+                    {...register("confirmPassword", {
+                      required: "Confirm Password is required",
+                      validate: (value, formValues) =>
+                        value === formValues.password ||
+                        "password is not matching",
+                    })}
+                    type="password"
+                    className="block pl-4 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                  />
+                  {errors.confirmPassword && (
+                    <p className="text-red-500">
+                      {errors.confirmPassword.message}
+                    </p>
+                  )}
+                </div>
+              </div>
               <div>
                 <button
                   type="submit"

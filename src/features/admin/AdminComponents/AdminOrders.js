@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { ITEMS_PER_PAGE } from "../../../Assets/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { PencilIcon } from "@heroicons/react/24/outline";
 import {
@@ -66,7 +65,6 @@ function AdminOrders() {
                   <th className="py-3 px-0 text-left">Shipping Address</th>
                   <th className="py-3 px-0 text-center">Order Status</th>
                   <th className="py-3 px-0 text-center">Payment Method</th>
-
                   <th className="py-3 px-0 text-center">Actions</th>
                 </tr>
               </thead>

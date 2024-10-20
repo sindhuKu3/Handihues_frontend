@@ -7,7 +7,6 @@ const ForgotPassword = () => {
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm();
 
@@ -27,7 +26,6 @@ const ForgotPassword = () => {
               className="space-y-6"
               noValidate
               onSubmit={handleSubmit((data) => {
-                // console.log(data);
               })}
             >
               <div>
@@ -67,7 +65,6 @@ const ForgotPassword = () => {
                 </button>
               </div>
             </form>
-
             <p className="mt-10 text-center text-sm text-gray-500">
               Send me back to{" "}
               <Link

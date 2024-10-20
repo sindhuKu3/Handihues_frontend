@@ -1,7 +1,7 @@
 export function createUser(userData){
     return new Promise (async(resolve)=>{
         const response = await fetch(
-          `/auth/signup`,
+          `https://handihues-backend.onrender.com/auth/signup`,
           {
             method: "POST",
             credentials: "include",
@@ -20,7 +20,7 @@ export function loginUser(loginInfo) {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `/auth/login`,
+        `https://handihues-backend.onrender.com/auth/login`,
         {
           method: "POST",
           credentials: "include",
@@ -44,9 +44,10 @@ export function loginUser(loginInfo) {
 export function checkAuth() {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch(
-        `/auth/check`
-      );
+      const response = await fetch(`https://handihues-backend.onrender.com/auth/check`,{
+        method: 'GET',
+        credentials: 'include', // Include credentials (cookies/tokens) with the request
+      });
       if (response.ok) {
         const data = await response.json();
         resolve({ data });

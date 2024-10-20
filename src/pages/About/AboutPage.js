@@ -1,10 +1,10 @@
 const AboutPage = () => {
     return (
       <div className="AboutPage">
-        <div className="Common">
+        <div className="Common w-full">
           <img
-            className="-pt-5"
-            src="./images/3.png"
+            className="-pt-5 w-full"
+            src="./images/2.png"
             alt="error"
             style={{ height: "550px" }}
           ></img>
@@ -99,8 +99,8 @@ const AboutPage = () => {
         </div>
         <div className="thankyou m-5 rounded-lg">
           <img
-            className="-pt-5 rounded-lg"
-            src="./images/thankyou.png"
+            className="-pt-5 rounded-lg w-full"
+            src="./images/5.png"
             alt="error"
             style={{ height: "550px" }}
           ></img>

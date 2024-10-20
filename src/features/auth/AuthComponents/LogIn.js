@@ -39,6 +39,7 @@ const LogIn = () => {
               );
             })}
           >
+            {/* EMAIL ADDRESS FIELD */}
             <div>
               <label
                 htmlFor="email"
@@ -64,7 +65,7 @@ const LogIn = () => {
                 )}
               </div>
             </div>
-
+              {/* PASSWORD FIELD */}
             <div>
               <div className="flex items-center justify-between">
                 <label
@@ -108,7 +109,7 @@ const LogIn = () => {
               </button>
             </div>
           </form>
-
+       
           <p className="mt-10 text-center text-sm text-purple-500">
             Don't have Account?{" "}
             <Link

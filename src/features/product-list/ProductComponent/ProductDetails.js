@@ -6,10 +6,8 @@ import {
   selectProductById,
 } from "../productSlice";
 import { useParams } from "react-router-dom";
-
 import { addToCartAsync, selectedItems } from "../../cart/cartSlice";
 import Rating from "../../../Assets/rating";
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -60,6 +58,33 @@ const ProductDetails = () => {
             />
           </div>
           <div className="mx-3 max-w-4xl">
+            {/* Product price section */}
+            <div className="Price align-items w-full flex flex-row ">
+              <p className="mt-8 text-3xl font-medium text-gray-900">
+                Rs &nbsp;
+                {Math.round(
+                  product.price * (1 - product.discountPercentage / 100)
+                )}
+              </p>
+              <p className="mt-8 text-3xl pl-3 font-medium text-gray-500 line-through">
+                {product.price}Rs
+              </p>
+              <p className="mt-8 text-3xl pl-3 font-medium text-green-500 ">
+                {product.discountPercentage}% OFF
+              </p>
+            </div>
+
+            <div className="w-full mt-6 flex items-center justify-between text-3xl">
+              <div className="flex items-center">
+                <p>Rating: </p>
+                <p className="mr-4">{" "}{product.rating}</p>
+                <Rating className="mr-4" value={product.rating} />
+                <p className="text-xl text-gray-700">
+                  from {product.numReviews} Reviews
+                </p>
+              </div>
+            </div>
+
             <h3 className="text-3xl tracking-tight mt-10 text-gray-900">
               Description
             </h3>
@@ -76,35 +101,11 @@ const ProductDetails = () => {
               <p className="text-xl text-gray-600">{product.highlights}</p>
             </div>
 
-            {/* Reviews */}
-            <div className="mt-4">
+            <div className="w-full">
               <h3 className="sr-only">Reviews</h3>
               <div className="flex items-center">
-                <div className=" mt-2 w-full Rating text-3xl flex inline-flex justify-between  ">
-                  <p>{product.rating}</p>
-                  <Rating value={product.rating} />
-                  <p className="mt-0  pl-3 text-xl text-gray-700">
-                    from {product.numReviews} Reviews
-                  </p>
-                </div>
-                   {/* Price */}
+                {/* Price */}
                 <div className="mt-6 lg:row-span-3  w-full lg:mt-0">
-                  <div className="Price align-items w-full flex flex-row ">
-                   
-                    <p className="mt-8 text-3xl font-medium text-gray-900">
-                      Rs &nbsp;
-                      {Math.round(
-                        product.price * (1 - product.discountPercentage / 100)
-                      )}
-                    </p>
-                    <p className="mt-8 text-3xl pl-3 font-medium text-gray-500 line-through">
-                      {product.price}Rs
-                    </p>
-                    <p className="mt-8 text-3xl pl-3 font-medium text-green-500 ">
-                      {product.discountPercentage}% OFF
-                    </p>
-                  </div>
-
                   <div className="handleCartCase">
                     {product.countInStock <= 0 ? (
                       <p className="mt-10 pt-10 text-2xl pl-10 text-red-700">

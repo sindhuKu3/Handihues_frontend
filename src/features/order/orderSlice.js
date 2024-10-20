@@ -73,8 +73,7 @@ export const orderSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { resetOrder } = orderSlice.actions;
-
- export const selectCurrentOrder = (state) => state.order.currentOrder; 
+export const selectCurrentOrder = (state) => state.order.currentOrder; 
 export const selectedOrder = (state)=>state.order.orders ; 
 export const selectTotalOrders = (state)=>state.order.totalOrders;
 export const selectStatus = (state) => state.order.status;

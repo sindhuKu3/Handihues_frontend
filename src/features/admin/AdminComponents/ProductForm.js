@@ -23,11 +23,9 @@ const ProductForm = () => {
   useEffect(() => {
     if (params.id) {
       dispatch(fetchProductByIdAsync(params.id));
-    } else {
-      dispatch(clearSelectedProduct());
-    }
+    } 
   }, [dispatch, params.id]);
-  //,
+
   useEffect(() => {
     if (selectedProduct && params.id) {
       setValue("name", selectedProduct.name);
@@ -47,26 +45,38 @@ const ProductForm = () => {
     product.deleted = "true";
     dispatch(updateProductAsync(product));
   };
+
+ const handleAdd = () => {
+   const product = { ...selectedProduct };
+   if (product.id) {
+     // If product has an ID, it means it's being updated
+     product.deleted = "false";
+     dispatch(updateProductAsync(product));
+   } else {
+     // If no ID, create a new product
+     product.deleted = "false"; // Mark as not deleted
+     dispatch(createProductAsync(product)); // Dispatch create action
+   }
+ };
   return (
     <div className="ProductForm">
       <form
         noValidate
         onSubmit={handleSubmit((data) => {
-          // console.log(data);
           const product = { ...data };
-          // product.rating = 0;
           product.price = +product.price;
           product.rating = +product.rating;
           product.countInStock = +product.countInStock;
-          // console.log(product);
+
           if (params.id) {
+            // If there's an ID in the URL, update the product
             product.id = params.id;
             dispatch(updateProductAsync(product));
-            reset();
           } else {
+            // If no ID, create a new product
             dispatch(createProductAsync(product));
-            reset();
           }
+          reset(); // Reset the form after submission
         })}
       >
         <div class="space-y-12">
@@ -158,7 +168,6 @@ const ProductForm = () => {
                 >
                   Cover photo
                 </label>
-                {/* <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10"> */}
                 <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                   <input
                     type="text"
@@ -191,11 +200,11 @@ const ProductForm = () => {
                   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <option>select</option>
-                  <option>Wooden</option>
-                  <option>MacrameArt</option>
-                  <option>Clay Item</option>
+                  <option>wooden</option>
+                  <option>MacrameART</option>
+                  <option>clayMadeItem</option>
                   <option>Accessories</option>
-                  <option>Bags</option>
+                  <option>bags</option>
                 </select>
                 {errors.category?.message && (
                   <p className="text-red-500">{errors.category?.message}</p>
@@ -322,6 +331,7 @@ const ProductForm = () => {
           <button
             type="submit"
             class="rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400  mr-4"
+            onClick={handleAdd}
           >
             Add Product
           </button>

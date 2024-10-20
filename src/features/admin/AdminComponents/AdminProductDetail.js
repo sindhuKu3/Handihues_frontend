@@ -31,13 +31,13 @@ const AdminProductDetails = () => {
   return (
     <div className="bg-white">
       <div className="pt-6">
-        {/* Product Name */}
+        {/* PRODUCT NAME */}
         <div className="flex items-center">
           <h1 className="text-2xl ml-10 font-bold tracking-tight text-gray-900 sm:text-3xl">
             {product.name}
           </h1>
         </div>
-        {/* Product Image */}
+        {/* PRODUCT IMAGE */}
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="aspect-h-4 aspect-w-3 hidden  rounded-lg lg:block">
             <img
@@ -70,7 +70,7 @@ const AdminProductDetails = () => {
                 Price: {product.price}
               </p>
 
-              {/* Reviews */}
+              {/* REVIEWS */}
               <div className="mt-6">
                 <h3 className="sr-only">Reviews</h3>
                 <div className="flex items-center">
@@ -81,13 +81,15 @@ const AdminProductDetails = () => {
                       from {product.numReviews} Reviews
                     </p>
                   </div>
-                  <button
-                    onClick={handleCart}
-                    type="submit"
-                    className="mt-20 w-4xl flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 "
-                  >
-                    Add to Cart
-                  </button>
+                  {!product.deleted && (
+                    <button
+                      onClick={handleCart}
+                      type="submit"
+                      className="mt-20 w-4xl flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    >
+                      Add to Cart
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
