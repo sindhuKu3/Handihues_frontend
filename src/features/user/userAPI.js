@@ -3,7 +3,7 @@ export function fetchLoggedInUserInfo() {
 
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handihues-backend.onrender.com/users/own`,
+      `https://handi-hues-backend.vercel.app/users/own`,
       {
         credentials: "include",
       }
@@ -19,7 +19,7 @@ export function fetchLoggedInUserInfo() {
 export function fetchLoggedInUserOrders() {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handihues-backend.onrender.com/orders/own`,
+      `https://handi-hues-backend.vercel.app/orders/own`,
       {
         credentials: "include",
       }
@@ -33,7 +33,7 @@ export function fetchLoggedInUserOrders() {
 export function updateUser(update) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handihues-backend.onrender.com/users/` + update.id,
+      `https://handi-hues-backend.vercel.app/users/` + update.id,
       {
         method: "PATCH",
         credentials: "include",

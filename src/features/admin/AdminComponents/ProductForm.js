@@ -63,21 +63,27 @@ const ProductForm = () => {
       <form
         noValidate
         onSubmit={handleSubmit((data) => {
-          const product = { ...data };
-          product.price = +product.price;
-          product.rating = +product.rating;
-          product.countInStock = +product.countInStock;
-
-          if (params.id) {
-            // If there's an ID in the URL, update the product
-            product.id = params.id;
-            dispatch(updateProductAsync(product));
-          } else {
-            // If no ID, create a new product
-            dispatch(createProductAsync(product));
+          const formData = new FormData();
+          formData.append("name", data.name);
+          formData.append("description", data.description);
+          formData.append("highlights", data.highlights);
+          formData.append("category", data.category);
+          formData.append("price", +data.price);
+          formData.append("rating", +data.rating);
+          formData.append("countInStock", +data.countInStock);
+          formData.append("discountPercentage", +data.discountPercentage);
+          if (data.image && data.image[0]) {
+            formData.append("image", data.image[0]);
           }
-          reset(); // Reset the form after submission
+          if (params.id) {
+            formData.append("id", params.id);
+            dispatch(updateProductAsync(formData)); 
+          } else {
+            dispatch(createProductAsync(formData)); 
+          }
+          reset(); 
         })}
+        encType="multipart/form-data"
       >
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12 px-10 mt-9 mx-20">
@@ -170,7 +176,7 @@ const ProductForm = () => {
                 </label>
                 <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                   <input
-                    type="text"
+                    type="file"
                     {...register("image", {
                       required: "product image is required",
                     })}

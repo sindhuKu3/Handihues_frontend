@@ -3,7 +3,7 @@
 export function fetchProductById(id){
   return new Promise(async(resolve)=>{
     const response = await fetch(
-      `https://handihues-backend.onrender.com/products/` + id,
+      `/products/` + id,
       {
         credentials: "include",
       }
@@ -39,7 +39,7 @@ export function fetchProductsByFilter(filter,pagination,admin){
   return new Promise(async (resolve) => {
     try {
       const response = await fetch(
-        `https://handihues-backend.onrender.com/products?${queryParams.toString()}`,
+        `/products?${queryParams.toString()}`,
         {
           credentials: "include",
         }
@@ -56,41 +56,44 @@ export function fetchProductsByFilter(filter,pagination,admin){
   });
 }
 
-
-
-//CREATE PRODUCT API BY ADMIN
-export function createProduct(product){
+export function createProduct(productFormData) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handihues-backend.onrender.com/products`,
+      `/products`,
       {
         method: "POST",
         credentials: "include",
-        body: JSON.stringify(product),
-        headers: { "content-type": "application/json" },
+        body: productFormData, // Send FormData directly
       }
     );
     const data = await response.json();
     resolve({ data });
-  
   });
 }
-
 
 //UPDATING USER OBJECT IN CASE WE HAVE TO ADD ADDRESS DURING THE CHECKOUT TIME 
-export function updateProduct(update) {
-  return new Promise(async (resolve) => {
-    const response = await fetch(
-      `https://handihues-backend.onrender.com/products/` + update.id,
-      {
-        method: "PATCH",
-        credentials: "include",
-        body: JSON.stringify(update),
-        headers: { "content-type": "application/json" },
+export function updateProduct(formData) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(
+        `/products/${formData.get("id")}`, // Get ID from FormData
+        {
+          method: "PATCH",
+          credentials: "include",
+          body: formData, // Send FormData directly
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
-    );
-    const data = await response.json();
-    resolve({ data });
+      const data = await response.json();
+      resolve({ data });
+    } catch (error) {
+      reject(error); // Reject the promise on error
+    }
   });
 }
+
+
 

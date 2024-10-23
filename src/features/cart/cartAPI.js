@@ -1,7 +1,7 @@
 export function addToCart(item) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handihues-backend.onrender.com/carts`,
+      `/carts`,
       {
         method: "POST",
         credentials: "include",
@@ -17,12 +17,9 @@ export function addToCart(item) {
 //FETCH ITEMS INSERTED BY USER WITH PARTICULAR ID
 export function fetchItemsByUserId(){
     return new Promise(async(resolve)=>{
- const response = await fetch(
-   `https://handihues-backend.onrender.com/carts`,
-   {
-     credentials: "include",
-   }
- );
+ const response = await fetch(`/carts`, {
+   credentials: "include",
+ });
  const data = await response.json() ; 
  resolve({data})
     })
@@ -33,7 +30,7 @@ export function fetchItemsByUserId(){
 export function updateCart(update) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handihues-backend.onrender.com/carts/` + update.id,
+      `/carts/` + update.id,
       {
         method: "PATCH",
         credentials: "include",
@@ -50,7 +47,7 @@ export function updateCart(update) {
 export function deleteItemFromCart(itemId) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://handihues-backend.onrender.com/carts/` + itemId,
+      `/carts/` + itemId,
       {
         method: "DELETE",
         credentials: "include",
