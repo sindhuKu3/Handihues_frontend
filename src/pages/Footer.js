@@ -3,7 +3,7 @@ import { facebook, instagram, twitter } from "../Assets/icon";
 const Footer = () => {
     return (
       <div className="footer mt-20">
-        <div className=" bg-gray-900">
+        <div className=" bg-white-900">
           <div className="max-w-2xl mx-auto text-white py-10">
             <div className="text-center">
               <img

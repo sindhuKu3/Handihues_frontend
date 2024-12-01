@@ -1,7 +1,7 @@
 export function createUser(userData){
     return new Promise (async(resolve)=>{
         const response = await fetch(
-          `/auth/signup`,
+          `http://localhost:8000/auth/signup`,
           {
             method: "POST",
             credentials: "include",
@@ -19,15 +19,12 @@ export function createUser(userData){
 export function loginUser(loginInfo) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch(
-        `/auth/login`,
-        {
-          method: "POST",
-          credentials: "include",
-          body: JSON.stringify(loginInfo),
-          headers: { "content-type": "application/json" },
-        }
-      );
+      const response = await fetch(`http://localhost:8000/auth/login`, {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify(loginInfo),
+        headers: { "content-type": "application/json" },
+      });
       if (response.ok) {
         const data = await response.json();
         resolve({ data });
@@ -44,13 +41,10 @@ export function loginUser(loginInfo) {
 export function checkAuth() {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch(
-        `/auth/check`,
-        {
-          method: "GET",
-          credentials: "include", // Include credentials (cookies/tokens) with the request
-        }
-      );
+      const response = await fetch(`http://localhost:8000/auth/check`, {
+        method: "GET",
+        credentials: "include", // Include credentials (cookies/tokens) with the request
+      });
       if (response.ok) {
         const data = await response.json();
         resolve({ data });

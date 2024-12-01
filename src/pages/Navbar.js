@@ -1,5 +1,13 @@
 import { Fragment } from "react";
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItems, Transition } from "@headlessui/react";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Menu,
+  MenuButton,
+  MenuItems,
+  Transition,
+} from "@headlessui/react";
 import {
   Bars3Icon,
   ShoppingCartIcon,
@@ -11,8 +19,6 @@ import { useSelector } from "react-redux";
 import { selectLoggedInUser } from "../../features/auth/authSlice";
 import { selectedItems } from "../../features/cart/cartSlice";
 import { selectUserInfo } from "../../features/user/userSlice";
-
-
 
 const navigation = [
   { name: "HandiHues", link: "/", user: true },
@@ -26,11 +32,10 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function NavBar({children}) {
-
+function NavBar({ children }) {
   const items = useSelector(selectedItems);
-   const user = useSelector(selectLoggedInUser);
-const userInfo = useSelector(selectUserInfo)
+  const user = useSelector(selectLoggedInUser);
+  const userInfo = useSelector(selectUserInfo);
   return (
     <>
       {userInfo && (
@@ -49,7 +54,6 @@ const userInfo = useSelector(selectUserInfo)
                             alt="Your Company"
                           />
                         </Link>
-                    
                       </div>
                       <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-4">
@@ -115,7 +119,6 @@ const userInfo = useSelector(selectUserInfo)
                             leaveTo="transform opacity-0 scale-95"
                           >
                             <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 cursor-pointer ring-black ring-opacity-5 focus:outline-none">
-                              
                               <ul>
                                 <div>
                                   <li className="hover:bg-purple-600 w-full">
@@ -224,7 +227,7 @@ const userInfo = useSelector(selectUserInfo)
                         </span>
                       )}
                     </div>
-                   
+
                     <div className="UserNavigation ">
                       <div className="Profile">
                         <Link
@@ -257,9 +260,7 @@ const userInfo = useSelector(selectUserInfo)
             )}
           </Disclosure>
 
-          <header className="bg-white shadow">
-            
-          </header>
+          <header className="bg-white shadow"></header>
         </div>
       )}
     </>
