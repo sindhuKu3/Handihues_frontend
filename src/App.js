@@ -26,9 +26,10 @@ import AdminOrders from "./features/admin/AdminComponents/AdminOrders";
 import { fetchLoggedInUserInfoAsync } from "./features/user/userSlice";
 import { checkAuthAsync, selectLoggedInUser } from "./features/auth/authSlice";
 import AboutPage from "./pages/About/AboutPage";
-import NavBar from "./pages/NavBar/NavBar"
+// import Navbar from "./pages/Navbar/Navbar"
 import Footer from "./pages/Footer";
 import Cart from "./features/cart/Cart";
+import NavBar from "./pages/Navbar";
 
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
     <div className="App">
       <main>
         <BrowserRouter>
-          <NavBar />
+      <NavBar/>
           <Routes>
             <Route
               path="/"

@@ -16,9 +16,9 @@ import {
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { selectLoggedInUser } from "../../features/auth/authSlice";
-import { selectedItems } from "../../features/cart/cartSlice";
-import { selectUserInfo } from "../../features/user/userSlice";
+import { selectLoggedInUser } from "../features/auth/authSlice";
+import { selectedItems } from "../features/cart/cartSlice";
+import { selectUserInfo } from "../features/user/userSlice";
 
 const navigation = [
   { name: "HandiHues", link: "/", user: true },
