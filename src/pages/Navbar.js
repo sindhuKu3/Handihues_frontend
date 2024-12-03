@@ -38,7 +38,7 @@ function NavBar({ children }) {
   const userInfo = useSelector(selectUserInfo);
   return (
     <>
-      {userInfo && (
+     {userInfo && (
         <div className="max-h-full ">
           <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -79,7 +79,7 @@ function NavBar({ children }) {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-4 flex items-center md:ml-6">
-                        <Link to="/cart">
+                       <Link to="/cart">
                           <button
                             type="button"
                             className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -91,14 +91,14 @@ function NavBar({ children }) {
                             />
                           </button>
                         </Link>
-                        {items.length > 0 && (
+                        { items.length > 0 && (
                           <span className="inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                             {items.length}
                           </span>
                         )}
 
                         {/* Profile dropdown */}
-                        <Menu as="div" className="relative ml-3">
+                      {<Menu as="div" className="relative ml-3">
                           <div>
                             <MenuButton className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                               <span className="sr-only">Open user menu</span>
@@ -149,7 +149,7 @@ function NavBar({ children }) {
                               </ul>
                             </MenuItems>
                           </Transition>
-                        </Menu>
+                        </Menu>}
                       </div>
                     </div>
                     <div className=" flex md:hidden">

@@ -54,9 +54,9 @@ function App() {
             <Route
               path="/"
               element={
-                <Protected>
+            
                   <HomePage />
-                </Protected>
+              
               }
             />
             <Route path="/signup" element={<SignupPage />} />
@@ -80,9 +80,9 @@ function App() {
             <Route
               path="/productDetail/:id"
               element={
-                <Protected>
+                
                   <ProductDetails />
-                </Protected>
+        
               }
             />
             <Route path="/orderSuccess/:id" element={<OrderSuccess />} />
