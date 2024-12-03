@@ -2,9 +2,12 @@
 //FECTH PRODUCT BY ID 
 export function fetchProductById(id){
   return new Promise(async(resolve)=>{
-    const response = await fetch(`http://localhost:8000/products/` + id, {
-      credentials: "include",
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/products/` + id,
+      {
+        credentials: "include",
+      }
+    );
     const data = await response.json() ; 
     resolve({data});
   })
@@ -36,7 +39,7 @@ export function fetchProductsByFilter(filter,pagination,admin){
   return new Promise(async (resolve) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/products?${queryParams.toString()}`,
+        `https://handihues-backend.onrender.com/products?${queryParams.toString()}`,
         {
           credentials: "include",
         }
@@ -55,11 +58,14 @@ export function fetchProductsByFilter(filter,pagination,admin){
 
 export function createProduct(productFormData) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8000/products`, {
-      method: "POST",
-      credentials: "include",
-      body: productFormData, // Send FormData directly
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/products`,
+      {
+        method: "POST",
+        credentials: "include",
+        body: productFormData, // Send FormData directly
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -70,7 +76,7 @@ export function updateProduct(formData) {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/products/${formData.get("id")}`, // Get ID from FormData
+        `https://handihues-backend.onrender.com/products/${formData.get("id")}`, // Get ID from FormData
         {
           method: "PATCH",
           credentials: "include",

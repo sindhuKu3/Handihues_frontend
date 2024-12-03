@@ -1,11 +1,14 @@
 export function addToCart(item) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8000/carts`, {
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify(item),
-      headers: { "content-type": "application/json" },
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/carts`,
+      {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify(item),
+        headers: { "content-type": "application/json" },
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -14,7 +17,7 @@ export function addToCart(item) {
 //FETCH ITEMS INSERTED BY USER WITH PARTICULAR ID
 export function fetchItemsByUserId(){
     return new Promise(async(resolve)=>{
- const response = await fetch(`http://localhost:8000/carts`, {
+ const response = await fetch(`https://handihues-backend.onrender.com/carts`, {
    credentials: "include",
  });
  const data = await response.json() ; 
@@ -26,12 +29,15 @@ export function fetchItemsByUserId(){
 //UPDATE CART EX:CHANGING THE QUANTITY OF PARTICULAR PRODUCT FROM THE CART 
 export function updateCart(update) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8000/carts/` + update.id, {
-      method: "PATCH",
-      credentials: "include",
-      body: JSON.stringify(update),
-      headers: { "content-type": "application/json" },
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/carts/` + update.id,
+      {
+        method: "PATCH",
+        credentials: "include",
+        body: JSON.stringify(update),
+        headers: { "content-type": "application/json" },
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -40,12 +46,15 @@ export function updateCart(update) {
 //API CALL FOR DELETING AN ITEM FROM THE CART ITEM 
 export function deleteItemFromCart(itemId) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8000/carts/` + itemId, {
-      method: "DELETE",
-      credentials: "include",
-      // body: JSON.stringify(itemId),
-      headers: { "content-type": "application/json" },
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/carts/` + itemId,
+      {
+        method: "DELETE",
+        credentials: "include",
+        // body: JSON.stringify(itemId),
+        headers: { "content-type": "application/json" },
+      }
+    );
     const data = await response.json();
     resolve({ data: { id: itemId } });
      

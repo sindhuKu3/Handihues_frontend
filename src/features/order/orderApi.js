@@ -1,11 +1,14 @@
 export function createOrder(order) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8000/orders`, {
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify(order),
-      headers: { "content-type": "application/json" },
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/orders`,
+      {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify(order),
+        headers: { "content-type": "application/json" },
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -14,9 +17,12 @@ export function createOrder(order) {
 export function fetchLoggedInUserOrders() {
  
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8000/orders/own/`, {
-      credentials: "include",
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/orders/own/`,
+      {
+        credentials: "include",
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -45,12 +51,15 @@ export function fetchAllOrders( pagination) {
 //UPDATE ORDER API
 export function updateOrder(order) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8000/orders/` + order.id, {
-      method: "PATCH",
-      credentials: "include",
-      body: JSON.stringify(order),
-      headers: { "content-type": "application/json" },
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/orders/` + order.id,
+      {
+        method: "PATCH",
+        credentials: "include",
+        body: JSON.stringify(order),
+        headers: { "content-type": "application/json" },
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });

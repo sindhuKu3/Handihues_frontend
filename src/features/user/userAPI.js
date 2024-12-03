@@ -2,9 +2,12 @@
 export function fetchLoggedInUserInfo() {
 
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8000/users/own`, {
-      credentials: "include",
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/users/own`,
+      {
+        credentials: "include",
+      }
+    );
   
     const data = await response.json();
     resolve({ data });
@@ -15,9 +18,12 @@ export function fetchLoggedInUserInfo() {
 //FETCH LOGGED IN USER ORDER DETAILS
 export function fetchLoggedInUserOrders() {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8000/orders/own`, {
-      credentials: "include",
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/orders/own`,
+      {
+        credentials: "include",
+      }
+    );
       //?user=" + userId
     const data = await response.json();
     resolve({ data });
@@ -26,12 +32,15 @@ export function fetchLoggedInUserOrders() {
 //update user
 export function updateUser(update) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8000/users/` + update.id, {
-      method: "PATCH",
-      credentials: "include",
-      body: JSON.stringify(update),
-      headers: { "content-type": "application/json" },
-    });
+    const response = await fetch(
+      `https://handihues-backend.onrender.com/users/` + update.id,
+      {
+        method: "PATCH",
+        credentials: "include",
+        body: JSON.stringify(update),
+        headers: { "content-type": "application/json" },
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
